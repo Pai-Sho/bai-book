@@ -10,7 +10,7 @@
 
 Q. Why is it not possible to detect the signal in this example?
 
-A. TODO
+A. Because the magnitude of the drift is much higher than the signal, and there is only one period of signal which is not enough data to separate it from the drift.
 
 ## Aliasing
 
@@ -18,11 +18,11 @@ A. TODO
 
 Q. Given a TR of 2000ms, is it possible to avoid aliasing when sampling from the HRF shown above? Why or why not?
 
-A. TODO
+A. The signal shown in the HRF is not periodic, so aliasing doesn't really apply in this case. Assuming the signal repeats every 5 seconds, it would be possible to avoid aliasing since that corresponds to a 0.5Hz sampling frequency, which is more than double the signal frequency of 0.2Hz, and therefore is greater than the Nyquist frequency.
 
 Q. What could possibly be the largest TR while avoiding aliasing? Why?
 
-A. TODO
+A. 2500ms, or 2.5 seconds with the assumptions made above.
 
 ## Noise Map
 
@@ -30,8 +30,8 @@ A. TODO
 
 Q. If the noise were uniform across the entire brain, what would the spatial map look like instead?
 
-A. TODO
+A. The map would be a uniform color
 
 Q. If noise were higher closer to the center of the brain, what would the spatial map look like instead?
 
-A. TODO
+A. It would be brighter towards the center and dimmer further away
