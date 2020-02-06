@@ -9,7 +9,7 @@ pagenum: 16
 prev_page:
   url: /videos/principles-of-fmri/9-fmri-artifacts-and-noise/index.html
 next_page:
-  url: /units/fmri-analysis.html
+  url: /labs/lab-signal-processing/index.html
 suffix: .ipynb
 search: data x nibabel brain using mask y z test case d image add slices also get visualize neuroimaging python plot stored nifti access dimensions slice try different showing show location axis code handle load files nii compressed gzip very tool file system nipy org dont already easy pip only need simply either tutorials numpy array matplotlib lets probably slicing yourself feel represented anatomical not techniques part s where tells highlight across below following functionalities e g xyz improve viewing tutorial learn often format gz store both contain structured metadata header nice called installed computer via tell jupyter cell unix outside
 
@@ -73,12 +73,8 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Collecting nibabel
-  Downloading https://files.pythonhosted.org/packages/0d/fc/2efb2a7c5d117c761b72f6bc00bf057294e9ccdf0a737957c65fa89ecc6f/nibabel-3.0.0-py3-none-any.whl (3.3MB)
-     |████████████████████████████████| 3.3MB 4.3MB/s eta 0:00:01
+<pre>Requirement already satisfied: nibabel in /usr/local/lib/python3.7/site-packages (3.0.0)
 Requirement already satisfied: numpy&gt;=1.12 in /usr/local/lib/python3.7/site-packages (from nibabel) (1.17.3)
-Installing collected packages: nibabel
-Successfully installed nibabel-3.0.0
 </pre>
 </div>
 </div>
@@ -281,7 +277,7 @@ Successfully installed nibabel-3.0.0
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.image.AxesImage at 0x119db9b50&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x129c69e90&gt;</pre>
 </div>
 
 </div>
@@ -338,7 +334,7 @@ Successfully installed nibabel-3.0.0
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.image.AxesImage at 0x11a9f8210&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x109b08f90&gt;</pre>
 </div>
 
 </div>
@@ -749,7 +745,7 @@ Successfully installed nibabel-3.0.0
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ShowLocation</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ShowLocation</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -983,6 +979,306 @@ Successfully installed nibabel-3.0.0
 
 </div>
 </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">plotBrainVoxels</span><span class="p">(</span><span class="n">mask</span><span class="p">):</span>   
+    <span class="n">mask_np</span> <span class="o">=</span> <span class="n">mask</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span>
+    <span class="n">brain_counts</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]):</span>
+        <span class="n">zslice</span> <span class="o">=</span> <span class="n">mask_np</span><span class="p">[:,:,</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">brain_counts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">zslice</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+        
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">brain_counts</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">crop</span><span class="p">(</span><span class="n">mask</span><span class="p">):</span>
+    <span class="n">mask_np</span> <span class="o">=</span> <span class="n">mask</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span>
+    <span class="n">brain_counts_x</span> <span class="o">=</span> <span class="n">mask_np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">brain_counts_y</span> <span class="o">=</span> <span class="n">mask_np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">brain_counts_z</span> <span class="o">=</span> <span class="n">mask_np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+    
+    <span class="n">range_x</span> <span class="o">=</span> <span class="n">brain_counts_x</span><span class="p">[</span><span class="n">brain_counts_x</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">range_y</span> <span class="o">=</span> <span class="n">brain_counts_y</span><span class="p">[</span><span class="n">brain_counts_y</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">range_z</span> <span class="o">=</span> <span class="n">brain_counts_z</span><span class="p">[</span><span class="n">brain_counts_z</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span>
+    
+    <span class="n">x_lim</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">range_x</span><span class="o">.</span><span class="n">min</span><span class="p">()),</span> <span class="nb">int</span><span class="p">(</span><span class="n">range_x</span><span class="o">.</span><span class="n">max</span><span class="p">()))</span>
+    <span class="n">y_lim</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">range_y</span><span class="o">.</span><span class="n">min</span><span class="p">()),</span> <span class="nb">int</span><span class="p">(</span><span class="n">range_y</span><span class="o">.</span><span class="n">max</span><span class="p">()))</span>
+    <span class="n">z_lim</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">range_z</span><span class="o">.</span><span class="n">min</span><span class="p">()),</span> <span class="nb">int</span><span class="p">(</span><span class="n">range_z</span><span class="o">.</span><span class="n">max</span><span class="p">()))</span>
+    
+    <span class="n">mask_np_cropped</span> <span class="o">=</span> <span class="n">mask_np</span><span class="p">[</span><span class="n">x_lim</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">x_lim</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">y_lim</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">y_lim</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">z_lim</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">z_lim</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+    
+    <span class="k">return</span> <span class="n">mask_np_cropped</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(162, 251, 248)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">gradient</span><span class="p">(</span><span class="n">mask</span><span class="p">):</span>
+    <span class="n">mask_np</span> <span class="o">=</span> <span class="n">mask</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span>
+    <span class="n">brain_counts_x</span> <span class="o">=</span> <span class="n">mask_np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">brain_counts_y</span> <span class="o">=</span> <span class="n">mask_np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">brain_counts_z</span> <span class="o">=</span> <span class="n">mask_np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+    
+    <span class="n">x_grad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">brain_counts_x</span><span class="p">)</span>
+    <span class="n">y_grad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">brain_counts_y</span><span class="p">)</span>
+    <span class="n">z_grad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">brain_counts_z</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_grad</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;x gradient&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_grad</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;y gradient&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z_grad</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;z gradient&#39;</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="n">mask</span><span class="p">):</span>
+    <span class="n">mask_np</span> <span class="o">=</span> <span class="n">mask</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span>
+    <span class="n">brain_counts_x</span> <span class="o">=</span> <span class="n">mask_np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">brain_counts_y</span> <span class="o">=</span> <span class="n">mask_np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">brain_counts_z</span> <span class="o">=</span> <span class="n">mask_np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">brain_counts_x</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">brain_counts_y</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">brain_counts_z</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;z&#39;</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    
+    <span class="c1">#return(brain_counts_x, brain_counts_y, brain_counts_z)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">signal</span>
+
+<span class="k">def</span> <span class="nf">resample</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">interval</span><span class="p">):</span>
+    <span class="n">mask_np</span> <span class="o">=</span> <span class="n">mask</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span>
+    <span class="n">brain_counts_x</span> <span class="o">=</span> <span class="n">mask_np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">brain_counts_y</span> <span class="o">=</span> <span class="n">mask_np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">brain_counts_z</span> <span class="o">=</span> <span class="n">mask_np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+    
+    <span class="n">x_resample</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">brain_counts_x</span><span class="p">,</span><span class="n">interval</span><span class="p">)</span>
+    <span class="n">y_resample</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">brain_counts_y</span><span class="p">,</span><span class="n">interval</span><span class="p">)</span>
+    <span class="n">z_resample</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">brain_counts_z</span><span class="p">,</span><span class="n">interval</span><span class="p">)</span>
+    
+    <span class="n">x_grad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">x_resample</span><span class="p">)</span>
+    <span class="n">y_grad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y_resample</span><span class="p">)</span>
+    <span class="n">z_grad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">z_resample</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_grad</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;x gradient&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_grad</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;y gradient&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z_grad</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;z gradient&#39;</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/labs/lab-image/index_46_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gradient</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/labs/lab-image/index_47_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">resample</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span><span class="mi">25</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/labs/lab-image/index_48_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">calculate_mass</span><span class="p">(</span><span class="n">mask</span><span class="p">):</span>
+    
+    <span class="n">mask_cropped</span> <span class="o">=</span> <span class="n">crop</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
+    
+    <span class="n">mask_cropeed_y</span> <span class="o">=</span> <span class="n">mask_cropped</span><span class="p">[]</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
 
