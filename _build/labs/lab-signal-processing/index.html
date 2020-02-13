@@ -9,7 +9,7 @@ pagenum: 17
 prev_page:
   url: /labs/lab-image/index.html
 next_page:
-  url: /units/fmri-analysis.html
+  url: /labs/lab-frequency-domain/index.html
 suffix: .ipynb
 search: signal product dot kernel lets function convolution frequency sampling shape waves different noise sine samples code create signals vectors oscillations domain using interactive vector values between value hrf data practice com also html above parameters hz need exercise increase implement our spikes notice matrix try theta neural series lecturelets mikexcohen random nsamples measure described e overview dotproduct happens does decrease allow explore changing given point convolve boxcar taking sure amplitude observe processing lab learn basics exercises excellent interested encourage pass low begin creating rewrite introduce parameter control want understand exploration its below rows view any solution cycles per second sum
 
@@ -110,7 +110,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;matplotlib.lines.Line2D at 0x11a7e5490&gt;]</pre>
+<pre>[&lt;matplotlib.lines.Line2D at 0x10dd19d90&gt;]</pre>
 </div>
 
 </div>
@@ -202,13 +202,13 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
  
  
-<div id="e48e8715-38b7-4741-aef2-3bc6fab54940"></div>
+<div id="932337d5-b399-49a6-9ba2-bdc1a733683f"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#e48e8715-38b7-4741-aef2-3bc6fab54940');
+var element = $('#932337d5-b399-49a6-9ba2-bdc1a733683f');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "7120df28232d4dd38399856e38a15514", "version_major": 2, "version_minor": 0}
+{"model_id": "24ecd052419c42db9762f7998c8c37d7", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -260,7 +260,7 @@ var element = $('#e48e8715-38b7-4741-aef2-3bc6fab54940');
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;matplotlib.lines.Line2D at 0x11cdc0650&gt;]</pre>
+<pre>[&lt;matplotlib.lines.Line2D at 0x10df6a1d0&gt;]</pre>
 </div>
 
 </div>
@@ -328,13 +328,13 @@ var element = $('#e48e8715-38b7-4741-aef2-3bc6fab54940');
 
  
  
-<div id="ef6ac2e2-bc16-4eef-9da2-1fe851dbe0dd"></div>
+<div id="a0d65446-4398-44d2-ace0-fef57e65dc7c"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#ef6ac2e2-bc16-4eef-9da2-1fe851dbe0dd');
+var element = $('#a0d65446-4398-44d2-ace0-fef57e65dc7c');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "ce9cd2c5db72430e8eaaba9458763dc1", "version_major": 2, "version_minor": 0}
+{"model_id": "f569c5ba3c084e54ad9c2802f86a5a22", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -398,7 +398,7 @@ var element = $('#ef6ac2e2-bc16-4eef-9da2-1fe851dbe0dd');
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Dot Product: 513
+<pre>Dot Product: 421
 </pre>
 </div>
 </div>
@@ -463,7 +463,7 @@ var element = $('#ef6ac2e2-bc16-4eef-9da2-1fe851dbe0dd');
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Dot Product: 978.4079452234711
+<pre>Dot Product: 843.7899822572358
 </pre>
 </div>
 </div>
@@ -507,7 +507,7 @@ var element = $('#ef6ac2e2-bc16-4eef-9da2-1fe851dbe0dd');
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nd">@interact_manual</span><span class="p">(</span><span class="n">noise_size</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span> <span class="n">n_samples</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 <span class="k">def</span> <span class="nf">test_dot_product</span><span class="p">(</span><span class="n">noise_size</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">):</span>
     <span class="c1">### BEGIN SOLUTION</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="n">create_random_signal</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)</span> 
+    <span class="n">a</span> <span class="o">=</span> <span class="n">create_random_signal</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)</span>
     <span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)</span> 
     <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">noise</span> <span class="o">*</span> <span class="n">noise_size</span>
     
@@ -533,13 +533,13 @@ var element = $('#ef6ac2e2-bc16-4eef-9da2-1fe851dbe0dd');
 
  
  
-<div id="c0cd7eb5-510d-401b-9f21-4c4fcbeb9c30"></div>
+<div id="7db0b426-bfa8-43e9-a70f-48b2034a27e7"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#c0cd7eb5-510d-401b-9f21-4c4fcbeb9c30');
+var element = $('#7db0b426-bfa8-43e9-a70f-48b2034a27e7');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "5bd24441bd9541eb959df2939b177675", "version_major": 2, "version_minor": 0}
+{"model_id": "4fba2de1c643431fafcd508b996ed013", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -633,10 +633,10 @@ var element = $('#c0cd7eb5-510d-401b-9f21-4c4fcbeb9c30');
 
  
  
-<div id="ddee0f75-28e2-4954-b8a2-1f8cd2b6e4e4"></div>
+<div id="c602f3f0-636d-4885-a9f6-d46eaddf7998"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#ddee0f75-28e2-4954-b8a2-1f8cd2b6e4e4');
+var element = $('#c602f3f0-636d-4885-a9f6-d46eaddf7998');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "b4564bc457ed4ababa10541687fb5562", "version_major": 2, "version_minor": 0}
@@ -679,10 +679,10 @@ var element = $('#ddee0f75-28e2-4954-b8a2-1f8cd2b6e4e4');
 
  
  
-<div id="a999bdd4-4348-41e0-8c24-0b4859f35d2b"></div>
+<div id="63150fac-4334-4c5e-bc15-91a658dd7eba"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#a999bdd4-4348-41e0-8c24-0b4859f35d2b');
+var element = $('#63150fac-4334-4c5e-bc15-91a658dd7eba');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "a28a89e724aa4e5b8c5195f31af562fd", "version_major": 2, "version_minor": 0}
@@ -1173,10 +1173,10 @@ Convolved Signal Length: 109
 
  
  
-<div id="730b7e8b-eaad-4edd-bfd5-fa2484f4ffcb"></div>
+<div id="f2e3ba37-d29b-4fed-b172-3a6e00186d25"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#730b7e8b-eaad-4edd-bfd5-fa2484f4ffcb');
+var element = $('#f2e3ba37-d29b-4fed-b172-3a6e00186d25');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "5eb43505aee14d22a048b81a3223a7fc", "version_major": 2, "version_minor": 0}
@@ -1455,11 +1455,18 @@ var element = $('#730b7e8b-eaad-4edd-bfd5-fa2484f4ffcb');
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nd">@interact_manual</span><span class="p">(</span><span class="n">oversampling</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">test_glover_hrf</span><span class="p">(</span><span class="n">oversampling</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nd">@interact_manual</span><span class="p">(</span><span class="n">oversampling</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="nb">max</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span><span class="n">n_samples</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">100</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">test_glover_hrf</span><span class="p">(</span><span class="n">oversampling</span><span class="p">,</span><span class="n">n_samples</span><span class="p">):</span>
     <span class="c1">### BEGIN SOLUTION</span>
-    
-    
+    <span class="n">signal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)</span>
+    <span class="n">signal</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n_samples</span><span class="p">,</span><span class="mi">5</span><span class="p">)]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+
+    <span class="n">f</span><span class="p">,</span><span class="n">a</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">hrf</span><span class="p">))</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Intensity&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Intensity&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>  
     <span class="c1">### END SOLUTION</span>
     <span class="k">return</span> <span class="kc">None</span>
 </pre></div>
@@ -1479,14 +1486,26 @@ var element = $('#730b7e8b-eaad-4edd-bfd5-fa2484f4ffcb');
 
  
  
-<div id="03c09b1c-63bc-4cbd-8c97-c2f2a65c89df"></div>
+<div id="8ca2bdf0-3dad-44c7-b7ca-37e312deb937"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#03c09b1c-63bc-4cbd-8c97-c2f2a65c89df');
+var element = $('#8ca2bdf0-3dad-44c7-b7ca-37e312deb937');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "8823050342654f65863ee04ef9dd0986", "version_major": 2, "version_minor": 0}
+{"model_id": "9a510c5d0d9c4ed48313896e1dffabcb", "version_major": 2, "version_minor": 0}
 </script>
+</div>
+
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/labs/lab-signal-processing/index_50_1.png"
+>
 </div>
 
 </div>
@@ -1586,13 +1605,12 @@ var element = $('#03c09b1c-63bc-4cbd-8c97-c2f2a65c89df');
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nd">@interact</span><span class="p">(</span><span class="n">sampling_freq</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="nb">max</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nd">@interact</span><span class="p">(</span><span class="n">sampling_freq</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="nb">max</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span> 
           <span class="n">freq</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="nb">max</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span> 
           <span class="n">theta</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="nb">max</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">),</span> 
           <span class="n">amplitude</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="nb">max</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
 <span class="k">def</span> <span class="nf">test_sine_waves</span><span class="p">(</span><span class="n">sampling_freq</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">amplitude</span><span class="p">):</span>
     <span class="c1">### BEGIN SOLUTION</span>
-    <span class="n">sampling_freq</span> <span class="o">=</span> <span class="mi">1000</span>
     <span class="n">time</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">sampling_freq</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">sampling_freq</span><span class="p">)</span>
 
     <span class="n">simulation</span> <span class="o">=</span> <span class="n">amplitude</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">freq</span> <span class="o">*</span> <span class="n">time</span> <span class="o">+</span> <span class="n">theta</span><span class="p">)</span>
@@ -1616,26 +1634,14 @@ var element = $('#03c09b1c-63bc-4cbd-8c97-c2f2a65c89df');
 
  
  
-<div id="975b0a64-83b2-4ba0-aabf-80803089b452"></div>
+<div id="b763e626-cd6d-441b-b4d5-ae26da664f9f"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#975b0a64-83b2-4ba0-aabf-80803089b452');
+var element = $('#b763e626-cd6d-441b-b4d5-ae26da664f9f');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "e6783ad9a168407fbbaf29dc1cfd9f60", "version_major": 2, "version_minor": 0}
+{"model_id": "74f76469a68f4421a973e981eddadb15", "version_major": 2, "version_minor": 0}
 </script>
-</div>
-
-</div>
-</div>
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_png output_subarea ">
-<img src="../../images/labs/lab-signal-processing/index_54_1.png"
->
 </div>
 
 </div>
@@ -1892,7 +1898,6 @@ var element = $('#975b0a64-83b2-4ba0-aabf-80803089b452');
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">generate_signal</span><span class="p">(</span><span class="n">sampling_freq</span><span class="p">,</span> <span class="n">freqs</span><span class="p">,</span> <span class="n">amplitudes</span><span class="p">,</span> <span class="n">phases</span><span class="p">):</span>
-    <span class="c1">### BEGIN SOLUTION</span>
     
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">freqs</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">amplitudes</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">phases</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error, vectors must be same length&#39;</span><span class="p">)</span>
@@ -1913,41 +1918,10 @@ var element = $('#975b0a64-83b2-4ba0-aabf-80803089b452');
     
     <span class="n">signal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">components</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
     
-    <span class="n">noise</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">signal</span><span class="p">))</span>
-    <span class="n">signal</span> <span class="o">=</span> <span class="n">signal</span> <span class="o">+</span> <span class="n">noise</span>
-    
     <span class="k">return</span> <span class="n">signal</span>
-    <span class="c1">### END SOLUTION</span>
-    
-<span class="k">def</span> <span class="nf">plot_signal</span><span class="p">(</span><span class="n">signal</span><span class="p">):</span> 
-    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
-    
-    
-    
-<span class="n">signal</span> <span class="o">=</span> <span class="n">generate_signal</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">35</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">])</span>
-<span class="n">plot_signal</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_png output_subarea ">
-<img src="../../images/labs/lab-signal-processing/index_62_0.png"
->
-</div>
-
-</div>
-</div>
 </div>
 </div>
 
@@ -1961,8 +1935,89 @@ var element = $('#975b0a64-83b2-4ba0-aabf-80803089b452');
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Test Case</span>
-<span class="n">signal</span> <span class="o">=</span> <span class="n">generate_signal</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">35</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">fixed_noise</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">noise_amplitude</span><span class="p">):</span>
+    <span class="n">noise</span> <span class="o">=</span> <span class="n">noise_amplitude</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">signal</span><span class="p">))</span>
+    <span class="n">signal</span> <span class="o">=</span> <span class="n">signal</span> <span class="o">+</span> <span class="n">noise</span>
+    <span class="k">return</span> <span class="n">signal</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">increasing_noise</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">min_noise</span><span class="p">,</span> <span class="n">max_noise</span><span class="p">):</span>
+    <span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">signal</span><span class="p">))</span>
+    <span class="n">noise</span> <span class="o">=</span> <span class="n">noise</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">min_noise</span><span class="p">,</span> <span class="n">max_noise</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">signal</span><span class="p">))</span>
+    <span class="n">signal</span> <span class="o">=</span> <span class="n">signal</span> <span class="o">+</span> <span class="n">noise</span>
+    <span class="k">return</span> <span class="n">signal</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">missing_data</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">percentage</span><span class="p">):</span>
+    <span class="n">missing_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">signal</span><span class="p">))</span>
+    <span class="n">signal</span><span class="p">[</span><span class="n">missing_data</span> <span class="o">&lt;</span> <span class="n">percentage</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+    <span class="k">return</span> <span class="n">signal</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">plot_signal</span><span class="p">(</span><span class="n">signal</span><span class="p">):</span> 
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">signal</span> <span class="o">=</span> <span class="n">generate_signal</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">35</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">signal</span> <span class="o">=</span> <span class="n">increasing_noise</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">signal</span> <span class="o">=</span> <span class="n">missing_data</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
 <span class="n">plot_signal</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
 </pre></div>
 
@@ -1979,7 +2034,7 @@ var element = $('#975b0a64-83b2-4ba0-aabf-80803089b452');
 
 
 <div class="output_png output_subarea ">
-<img src="../../images/labs/lab-signal-processing/index_63_0.png"
+<img src="../../images/labs/lab-signal-processing/index_67_0.png"
 >
 </div>
 
@@ -2000,6 +2055,7 @@ var element = $('#975b0a64-83b2-4ba0-aabf-80803089b452');
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Test Case</span>
 <span class="n">signal</span> <span class="o">=</span> <span class="n">generate_signal</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">35</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">signal</span> <span class="o">=</span> <span class="n">increasing_noise</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">plot_signal</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
 </pre></div>
 
@@ -2016,7 +2072,7 @@ var element = $('#975b0a64-83b2-4ba0-aabf-80803089b452');
 
 
 <div class="output_png output_subarea ">
-<img src="../../images/labs/lab-signal-processing/index_64_0.png"
+<img src="../../images/labs/lab-signal-processing/index_68_0.png"
 >
 </div>
 
